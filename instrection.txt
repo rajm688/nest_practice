@@ -1,0 +1,49 @@
+1. install nest globally by npm i -g @nestjs/cli
+2. Create a new app by nest new project_name
+
+3. Controllers
+    - Controllers are classes defined with @controller decorator
+    - Controllers are responsible for incoming user request and response
+    - bounded to single api path
+    - Controllers contains handlers which handles endpoints and req. methods like get, post, put delete patch
+    - can take advantages of dependency injections
+    - defined with decorator @controller
+    - Defining a controller nest g controller controller_name --no-spec
+
+5. Handlers
+    - Handlers are methods in classes which handles the endpoint
+
+6. Modules
+    - Modules are starting point of the application 
+    - Each app will contain at least one Modules
+    - Modules are effective ways to organize components by a closely related set of capabilities
+    - Modules have following properties controllers, providers, imports, exports
+    - Defining a Module nest g Module Module_name
+
+7. Providers
+    - providers can be injected into controllers if decorated as @Injectable
+    - provides can be anything a class, value, sync/async values
+    - provides must be provide to models in order to access in controllers
+    - can be exported from a model to another module and imported in required modules
+
+8. Services
+    - Services are implemented using providers
+    - Not all providers are services
+    - contains business logics
+    - Created using nest g service --no-spec
+
+9. Dependency injection
+    - Any component in nest js can be imported as Dependency if they are decorated with @injectables
+    - We define the dependency in the constructor of the class and nest will take care of it and will be available in the class property
+
+10. Whenever we need to create a new element we need a model or schema for it
+    - We can have a ts interface or class
+
+11. DTO - Data Tranfer Object
+    - It is common in software programming not specific to nest.js
+    - result is more bulletproof since it can be used as a ts type
+    - do not have specific behavior except storng , retriving, serilization and deserilization of Data
+    - results in incrased performance
+    - useful for datavalidation 
+    - it is not a model definition. it defies the shape of the data
+    - can be created using a interface or a class
