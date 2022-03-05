@@ -1,10 +1,12 @@
-// entery part of the program contains NestFactory which creates a new nest app instances
+// entry part of the program contains NestFactory which creates a new nest app instances
 
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ValidationPipe());
   await app.listen(3000);
 }
 bootstrap();

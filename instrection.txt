@@ -47,3 +47,37 @@
     - useful for datavalidation 
     - it is not a model definition. it defies the shape of the data
     - can be created using a interface or a class
+    - it defines the structure for the icomming data from th euser request and allows us to use it all over the app
+12. Piping
+    - pipes operate on the arguments to be processed by the handlers before the handlers are called 
+    - pipes can perform data-transformation and data-validation
+    - pipes can return data modified or originally which will be passed to the route handlers
+    - pipes can through exceptions nestjs will handle the exception and process it into errors
+    - pipes can be async
+13. Default pipes in nestjs
+    - nestjs has one default pipes in nestjs/common
+        - validation pipes - compairs the incomming objects against the classes and handles to the route handler if one property doesint match then it will through a exception
+        - parseint pipe - every incomming arguments will be a string it will convert it into string
+14. custome pipes
+    - pipes are classes that can be defined using @Injestable decorator
+    - pipes implement the PIPE TRANSFORM INTERFACE
+    - therefore every pipe must have a transform() method this method will be called by the nestjs to process the arguments
+    - the transform method will accepts two arguments
+        - value() - the value of the processed arguments
+        - metadata() - object containing metadata about the objet 
+    -  whatever returned from this method will be sent to the route handler and the exceptions are sent to the client
+    three types of pipes 
+
+        handler level pipes                        params level pipes                      global level pipes
+
+     requires some additional code          tends to slimmer and cleaner however
+     but provides some more additional      results in extra code for handler and
+     benifits                               becomes messy and hard to handle
+
+     - such pipes does not require extracode at the perameter level
+     - easy to make some change if there is some change in the datatype since it is only nedded to make changes in pipes
+     - the responsibility of identifing the arguments to the process is shifter to the pipe file
+     - promotes use of DTO which is very good practice
+15. validation
+    - in order to add validation we need to install npm i class-validator class-transformer
+    - find the avliable decerators in the class validator https://github.com/typestack/class-validator  
