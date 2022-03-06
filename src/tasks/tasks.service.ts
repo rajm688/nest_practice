@@ -32,7 +32,8 @@ export class TasksService {
   }
   //   Deleting Task
   DeleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id != id);
+    const foundtTask = this.getTaskById(id);
+    this.tasks = this.tasks.filter((task) => task.id != foundtTask.id);
     return 'deleted Successfully';
   }
   //   updating Task

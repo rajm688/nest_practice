@@ -47,18 +47,21 @@
     - useful for datavalidation 
     - it is not a model definition. it defies the shape of the data
     - can be created using a interface or a class
-    - it defines the structure for the icomming data from th euser request and allows us to use it all over the app
+    - it defines the structure for the incoming data from the user request and allows us to use it all over the app
+
 12. Piping
     - pipes operate on the arguments to be processed by the handlers before the handlers are called 
     - pipes can perform data-transformation and data-validation
     - pipes can return data modified or originally which will be passed to the route handlers
     - pipes can through exceptions nestjs will handle the exception and process it into errors
     - pipes can be async
+
 13. Default pipes in nestjs
     - nestjs has one default pipes in nestjs/common
-        - validation pipes - compairs the incomming objects against the classes and handles to the route handler if one property doesint match then it will through a exception
-        - parseint pipe - every incomming arguments will be a string it will convert it into string
-14. custome pipes
+        - validation pipes - compares the incoming objects against the classes and handles to the route handler if one property doesn’t match then it will through a exception
+        - parseint pipe - every incoming arguments will be a string it will convert it into string
+
+14. custom pipes
     - pipes are classes that can be defined using @Injestable decorator
     - pipes implement the PIPE TRANSFORM INTERFACE
     - therefore every pipe must have a transform() method this method will be called by the nestjs to process the arguments
@@ -72,12 +75,39 @@
 
      requires some additional code          tends to slimmer and cleaner however
      but provides some more additional      results in extra code for handler and
-     benifits                               becomes messy and hard to handle
+     benefits                               becomes messy and hard to handle
 
-     - such pipes does not require extracode at the perameter level
-     - easy to make some change if there is some change in the datatype since it is only nedded to make changes in pipes
-     - the responsibility of identifing the arguments to the process is shifter to the pipe file
+     - such pipes does not require extra code at the parameter level
+     - easy to make some change if there is some change in the data type since it is only needed to make changes in pipes
+     - the responsibility of identifying the arguments to the process is shifter to the pipe file
      - promotes use of DTO which is very good practice
+
 15. validation
     - in order to add validation we need to install npm i class-validator class-transformer
-    - find the avliable decerators in the class validator https://github.com/typestack/class-validator  
+    - find the available decorators in the class validator https://github.com/typestack/class-validator  
+
+16. Databases
+    - we use Postgres SQL for Databases
+    - in order to make work simple we use TypeORM 
+    - additionally we use Docker for this project
+
+17. Docker
+    - install and open the docker and setup the docker app
+    - open cmd prompt and type docker run --name PROJECT_NAME -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
+    - to stop the docker    -  docker container stop CONTAINER_NAME
+    - to start it           -  docker container start CONTAINER_NAME
+    - to remove a container -  docker container rm CONTAINER_NAME
+
+18. PG Admin
+    - Pg Admin is a fastest way to maintain database without having need to write lot of code
+
+19. Type ORM 
+    - Object Relational Mapping - is a technique which allows us to manipulate and query data from the database, using object oriented paradigm
+
+20. dependencies to install 
+    - npm i typeorm @nestjs/typeorm pg
+21. Active Record and Data mapper
+    - Active Record - writing query methods in the model itself
+    - Data Mapper - writing query methods in separate file as a class with @EntityRepository
+    - We will use Data Mapper method 
+
