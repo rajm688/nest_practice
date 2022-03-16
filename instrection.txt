@@ -106,8 +106,43 @@
 
 20. dependencies to install 
     - npm i typeorm @nestjs/typeorm pg
+
 21. Active Record and Data mapper
     - Active Record - writing query methods in the model itself
     - Data Mapper - writing query methods in separate file as a class with @EntityRepository
     - We will use Data Mapper method 
 
+22. Auth, JWT
+    - packages @nestjs/jwt @nestjs/passport passport passport-jwt @types/passport-jwt
+
+23. Stratgy
+    - Stratgues are nothing but a class decorated with @Injectable decorator
+
+24. Serialization - transformation 
+    - Interseptor is a concept in nestjs that allows us to do something when a req comes in either process it or change it
+
+25. logging 
+    - logging helps in tracking the code
+        - log
+        - warning
+        - errors
+        - debug
+        - verbose
+    - other logging libraries are - pino  burio winston
+    - import logger from @nestjs/common
+    - create a new instance of logger as const logger = new Logger()
+    - the logger class can be provided with context 
+    - the logger class will also accepts the second parameter which is timestramp enabled
+    - if you use error in logger it will allow us to error.stack 
+
+26. Configuration
+    - configuration are defining values that are loaded upon starting the application - hence that should not be changed
+    - configuration can be done per environment - development, stagging,production
+    - config. can be done in code base. helpfu wen we are woring in a team
+    - it can also be defined in all formats
+27. code base andd ev
+    - non sensitive details can be defined in code base
+    - sensitive datas will be stored in ev
+    - to use config in our program we need to install @nestjs/config
+    - import config module in our app module
+    - 
